@@ -1,6 +1,17 @@
 
 # Digital Signal Encoder and Decoder
 
+
+## Project Team
+
+This project was developed by the following students:
+
+| S. No. | Student Name | Enrollment Number |
+|---|---|---|
+| 1 | Abhay Verma | 2024BITE077 |
+| 2 | Pawan Bhat | 2024BITE001 |
+| 3 | Vinay Kumar | 2024BITE079 |
+
 ## Overview
 
 This project is developed for **ITT 036: Programming Assignment 1 — Autumn 2026**. It implements digital signal encoding and decoding with a JavaFX graphical interface for signal visualization.
