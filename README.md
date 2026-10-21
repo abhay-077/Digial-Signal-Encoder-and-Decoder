@@ -1,6 +1,4 @@
-
 # Digital Signal Encoder and Decoder
-
 
 ## Project Team
 
@@ -31,6 +29,7 @@ This project is developed for **ITT 036: Programming Assignment 1 — Autumn 202
 - **AMI:** Alternate Mark Inversion
 - **B8ZS:** Bipolar with 8-Zero Substitution
 - **HDB3:** High-Density Bipolar 3-Zero
+- **RZ:** Return-to-Zero
 
 ### 3. Analog-to-Digital Conversion
 - Pulse Code Modulation (PCM)
@@ -41,35 +40,43 @@ This project is developed for **ITT 036: Programming Assignment 1 — Autumn 202
 - JavaFX-based graphical user interface.
 - Visualization of encoded signal waveforms.
 - Options to select encoding modes and schemes.
+- Experimental waveform image decoding using image pixel analysis.
 
 ### 5. Automated Testing
 - JUnit tests for digital signal encoding and decoding.
 - Tests for PCM and Delta Modulation.
+- Tests for palindrome detection and scrambling behavior.
+- Input validation and edge-case testing.
 
 ## Technologies Used
 
 - **Programming Language:** Java 21
 - **GUI Framework:** JavaFX
 - **Build Tool:** Apache Maven
-- **Testing Framework:** JUnit
+- **Testing Framework:** JUnit 5
+- **Design Pattern:** Strategy Pattern
 
 ## Project Structure
 
 ```text
 Digial-Signal-Encoder-and-Decoder/
-├── .idea/
 ├── .mvn/
 ├── src/
 │   ├── main/
 │   │   ├── java/com/digitalsignal/
 │   │   │   ├── Main.java
 │   │   │   ├── SignalCodec.java
-│   │   │   └── AnalogCodec.java
+│   │   │   ├── Palindrome.java
+│   │   │   ├── WaveformImageDecoder.java
+│   │   │   └── ...
 │   │   └── resources/
 │   └── test/
 │       └── java/com/digitalsignal/
 │           ├── SignalCodecTest.java
-│           └── AnalogCodecTest.java
+│           ├── AnalogCodecTest.java
+│           ├── PalindromeTest.java
+│           ├── ScramblerPatternTest.java
+│           └── ...
 ├── .gitignore
 ├── pom.xml
 └── README.md
@@ -85,10 +92,16 @@ Digial-Signal-Encoder-and-Decoder/
 
 Open a terminal in the directory containing `pom.xml`.
 
+### Build the Project
+
+```bash
+mvn clean package
+```
+
 ### Run Automated Tests
 
 ```bash
-mvn clean test
+mvn test
 ```
 
 ### Launch the Application
@@ -99,11 +112,24 @@ mvn javafx:run
 
 ## Test Results
 
-The project has passed the following automated tests in the development environment:
+The latest reported automated test run completed successfully:
 
-- AnalogCodecTest: 4 tests passed.
-- SignalCodecTest: 5 tests passed.
-- **Total: 9 tests passed, 0 failures, 0 errors.**
+- **Total:** 20 tests
+- **Failures:** 0
+- **Errors:** 0
+- **Skipped:** 0
+
+Tests cover digital encoding and decoding, analog conversion, palindrome detection, scrambling, and edge cases.
+
+## Design Approach
+
+The line-coding implementations use the **Strategy Pattern**. Individual strategy classes encapsulate the behavior of specific coding schemes, while a central registry selects the appropriate strategy.
+
+## Limitations
+
+- Image-based waveform decoding is experimental.
+- Decoding accuracy depends on the waveform layout, image scaling, cropping, and the selected encoding scheme.
+- Image-decoding results should be verified against the original input.
 
 ## Assignment Information
 
